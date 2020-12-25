@@ -1,0 +1,72 @@
+@model AddItemViewModel
+
+<form enctype="multipart/form-data" method="post" asp-controller="Item" asp-action="Add" id="addForm">
+
+    <div class="form-group">
+        <label asp-for="Name"></label><span class="text-danger">*</span>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Cereal, Ice cream, Tuna, etc...">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+
+    <label asp-for="Price"></label><span class="text-danger">*</span>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+        </div>
+        <input type="text" class="form-control" asp-for="Price" placeholder="1 , 23.5 , 50.23">
+    </div>
+    <span class="text-danger" asp-validation-for="Price"></span>
+    <div class="mb-3"></div>
+    <div class="form-group">
+        <label asp-for="Description"></label><span class="text-danger">*</span>
+        <input type="text" class="form-control" asp-for="Description" placeholder="Unique in it's class...">
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Brands"></label><span class="text-danger">*</span>
+        <select asp-for="BrandId" asp-items="@Model.Brands" class="custom-select">
+        </select>
+        <span class="text-danger" asp-validation-for="BrandId"></span>
+    </div>
+
+    <div class="form-group ">
+        <label asp-for="ImageUploaded"></label><span class="text-danger">*</span>
+        <input type="file" class="form-control-file" asp-for="ImageUploaded" accept=".png,.jpg,.jpeg">
+        <span class="text-danger" asp-validation-for="ImageUploaded" id="InputTagSpan"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Categories"></label><span class="text-danger">*</span>
+        <select asp-for="CategoryId" asp-items="@Model.Categories" class="custom-select">
+        </select>
+        <span class="text-danger" asp-validation-for="CategoryId"></span>
+    </div>
+
+    <button class="btn btn-success">Save Changes</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+</form>
+
+
+
+
+@* <script> *@
+@* $("#CategoryId").on("change", function () { *@
+@* var categoryId = $(this).val(); *@
+@* $.ajax({ *@
+@* method: 'get', *@
+@* url: '/Item/GetSubCategories?categoryId=' + categoryId, *@
+@* success: function (result) { *@
+@* var htmlString = ""; *@
+@* for (var i = 0; i < result.length; i++) { *@
+@* htmlString += "<input type='checkbox' name='subCategories' value = '" + result[i].subCategoryId + "' />"; *@
+@* htmlString += "<label>"+result[i].name+"</label>" *@
+@* } *@
+@* $("#subcategories").append(htmlString); *@
+@* } *@
+@* *@
+@* }) *@
+@* *@
+@* }) *@
+@* </script> *@
