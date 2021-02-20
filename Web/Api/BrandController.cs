@@ -42,6 +42,11 @@ namespace Web.Api
         [HttpGet("{id}")]
         public ActionResult<Brand> GetBrandById(int id)
         {
+            var text = "";
+            for (int i = 0; i < 10000000; i++)
+            {
+                text += "";
+            }
             return null;
         }
 

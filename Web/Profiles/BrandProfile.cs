@@ -8,7 +8,7 @@ namespace Web.Profiles
     {
         public BrandProfile()
         {
-            CreateMap<Brand, BrandDto>();
+            CreateMap<Brand, BrandDto>().ForMember(brandDto => brandDto.Id, opt => opt.MapFrom(src => src.BrandId));
         }
     }
 }

@@ -40,8 +40,8 @@ namespace Web.Controllers
 
             var model = new AddItemViewModel()
             {
-                Brands = categories.ToSelectList(),
-                Categories = brands.ToSelectList()
+                Brands = brands.ToSelectList(),
+                Categories = categories.ToSelectList()
             };
             return PartialView("_Add", model);
         }
